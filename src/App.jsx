@@ -4,6 +4,7 @@ import {Routes, Route}  from 'react-router'
 import MainLayout from './layouts/MainLayout'
 import Orders from './pages/Orders'
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 import Customers from './pages/Customers'
 import Inventory from './pages/Inventory'
@@ -28,6 +29,7 @@ function App() {
           {/* <Route path='/inventory/:productId' element={<ProductDetails />} /> */}
         </Route>
       </Routes>
+      <Footer />
     </>
   )
 }
