@@ -1,0 +1,21 @@
+.header {
+    color: blueviolet;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    padding: 16px;
+    font-size:x-large;
+}
+
+h1{
+    font-size: 2.5em; /* Make the title larger */
+    text-shadow:
+    -1px -1px 0 black, /* start of outline, using shadow function*/
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black,    /*end of outlline, using shadow function*/
+    2px 2px 8px rgb(110, 95, 195); /* actual shadow (direction on x axis, y axis, and length of shadow in size of px)px */
+    }
