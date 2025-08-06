@@ -1,13 +1,13 @@
 import { Link } from 'react-router';
 // import { useAuth } from '../AuthContext';
 
-// import styles from './Header.module.css';
+import styles from './Header.module.css';
 
 const Header = () => {
     // const { isAuth } = useAuth();
 
     return (
-        <header className= {styles.header}>
+        <header>
             <h1>Basic Order Management System</h1>
             <nav>
                 <ul>
