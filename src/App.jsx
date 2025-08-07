@@ -15,6 +15,7 @@ import NewOrder from './pages/NewOrder'
 import NewCustomer from './pages/NewCustomer'
 import CustomerProfile from './pages/CustomerProfile'
 import ProductDetails from './pages/ProductDetails'
+import NewProduct from './pages/NewProduct'
 
 function App() {
   
@@ -32,11 +33,11 @@ function App() {
           <Route path=':customerId' element={<CustomerProfile />} />
           <Route path='new' element={<NewCustomer />} />
         </Route>
-        {/* <Route path='/inventory' >
+        <Route path='/inventory' >
           <Route index element={<Inventory />} />
-          <Route path=':productId' element={<ProductDetails />} />
+          <Route path=':inventoryId' element={<ProductDetails />} />
           <Route path='new' element={<NewProduct />} />
-        </Route> */}
+        </Route>
       </Routes>
       <Footer />
     </>
