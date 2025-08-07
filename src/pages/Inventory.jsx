@@ -1,9 +1,12 @@
+import { Link } from "react-router";
+
 const Inventory = () => {
   return (
     <>
+    <div className="Inventory">
       <h1>Inventory Management Dashboard</h1>  
       <p>Manage your inventory items here.</p>
-        <button>Add Item</button>
+        <Link to="/inventory/new">New Item </Link>
         <table>
             <thead>
                 <tr>
@@ -17,6 +20,7 @@ const Inventory = () => {
                 {/* Inventory item rows will go here */}
             </tbody>
         </table>
+    </div>
     </>
   )
 };

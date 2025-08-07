@@ -1,9 +1,11 @@
+import { Link } from "react-router";
+
 const Customers = () => {
   return (
     <div>
       <h1>Customers Dashboard</h1>
         <p>Manage your customers here.</p>
-        <button>Add Customer</button>
+        <Link to="/customers/new"> New Customer </Link>
         <table>
             <thead>
                 <tr>

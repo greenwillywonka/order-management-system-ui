@@ -1,11 +1,13 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect} from "react";
+import { Link } from 'react-router';
 
 const OrderDashboard = () => {
     return (
         <>
+        <div className="OrderDashboard">
                <h1>Orders Dashboard</h1>
         <p>Manage your orders here.</p>
-        <button>Add Order</button>
+        <Link to="/orders/new"> New Order </Link>
         <table>
             <thead>
                 <tr>
@@ -20,7 +22,8 @@ const OrderDashboard = () => {
                 {/* Order rows will go here */}
             </tbody>
         </table>
-       
+
+       </div>
         </>
     );
 };
