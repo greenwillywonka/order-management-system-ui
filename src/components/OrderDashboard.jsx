@@ -72,11 +72,11 @@ const OrderDashboard = () => {
                 <tbody>
                     {orders && orders.length > 0 ? (
                         orders.map((order) => (
-                            <tr key={order.id}>
-                                <td>{order.id}</td>
-                                <td>{order.customer_name}</td>
-                                <td>{order.order_date}</td>
-                                <td>{order.po_number}</td>
+                            <tr key={order.orderid}>
+                                <td>{order.orderid}</td>
+                                <td>{order.customer}</td>
+                                <td>{order.orderdate}</td>
+                                <td>{order.po}</td>
                                 <td>{order.status}</td>
                                 <td>${order.total}</td>
                             </tr>
