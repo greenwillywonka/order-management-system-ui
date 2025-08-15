@@ -46,8 +46,8 @@ const NewOrder = () => {
         Customer
         <input
           type="text"
-          name="customer"
-          value={customer}
+          name="order_customer"
+          value={order_customer}
           onChange={(e) => setCustomer(e.target.value)}
         />
       </label>
@@ -55,8 +55,8 @@ const NewOrder = () => {
         PO
         <input
           type="text"
-          name="po"
-          value={po}
+          name="order_po"
+          value={order_po}
           onChange={(e) => setPo(e.target.value)}
         />
       </label>
@@ -64,8 +64,8 @@ const NewOrder = () => {
         Product
         <input
           type="text"
-          name="product"
-          value={product}
+          name="order_product"
+          value={order_product}
           onChange={(e) => setProduct(e.target.value)}
         />
       </label>
@@ -74,8 +74,8 @@ const NewOrder = () => {
         <input
           type="number"
           min="1"
-          name="quantity"
-          value={quantity}
+          name="order_product_quantity"
+          value={order_product_quantity}
           onChange={(e) => setQuantity(e.target.value)}
         />
       </label>
@@ -83,8 +83,8 @@ const NewOrder = () => {
         Total
         <input
           type="decimal"
-          name="total"
-          value={total}
+          name="order_total"
+          value={order_total}
           onChange={(e) => setTotal(e.target.value)}
         />
       </label>

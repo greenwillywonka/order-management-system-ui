@@ -33,18 +33,22 @@ const OrderDashboard = () => {
                         <th>PO</th>
                         <th>Status</th>
                         <th>Total</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     {orders && orders.length > 0 ? (
                         orders.map((order) => (
-                            <tr key={order.orderid}>
-                                <td>{order.orderid}</td>
-                                <td>{order.customer}</td>
-                                <td>{order.orderdate}</td>
-                                <td>{order.po}</td>
-                                <td>{order.status}</td>
-                                <td>${order.total}</td>
+                            <tr key={order.id}>
+                                <td>{order.id}</td>
+                                <td>{order.order_customer}</td>
+                                <td>{order.order_date}</td>
+                                <td>{order.order_po}</td>
+                                <td>{order.order_status}</td>
+                                <td>${order.order_total}</td>
+                                <td>
+                                    <Link to={`/orders/${order.id}`}>View</Link>
+                                </td>
                             </tr>
                         ))
                     ) : (
