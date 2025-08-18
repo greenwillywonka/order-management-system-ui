@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 
 const NewOrder = () => {
-  const [customer, setCustomer] = useState("");
-  const [po, setPo] = useState("");
-  const [product, setProduct] = useState("");
-  const [quantity, setQuantity] = useState("");
-  const [total, setTotal] = useState("");
+  const [order_customer, setCustomer] = useState(""); // set customer or setOrder_Customer?
+  const [order_po, setPo] = useState("");
+  const [order_product, setProduct] = useState("");
+  const [order_product_quantity, setQuantity] = useState("");
+  const [order_total, setTotal] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -16,10 +16,10 @@ const NewOrder = () => {
     const access_token = localStorage.getItem("access_token");
 
     const body = {
-      customer,
-      po,
-      product,
-      quantity: Number(quantity)
+      order_customer,
+      order_po,
+      order_product,
+      order_product_quantity: Number(order_product_quantity)
     };
 
     try {
@@ -82,7 +82,7 @@ const NewOrder = () => {
       <label>
         Total
         <input
-          type="decimal"
+          type="number"
           name="order_total"
           value={order_total}
           onChange={(e) => setTotal(e.target.value)}
