@@ -171,7 +171,7 @@ return (
 //         const data = await response.json();
 
 //         // set all values
-//         setCustomer(data.order_customer || order_customer.orderId);
+//         setCustomer(data.order_customer || order_customer.Id);
 //         setPo(data.order_po || "");
 //         setDate(data.order_date || "");
 //         setCreatedBy(data.order_created_by || "");
