@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 
-const OrderDetails = ({ Id }) => {
-  const apiUrl = `${import.meta.env.VITE_API_URL}/orders`;
+
+const OrderDetails = () => {
+  const { id } = useParams(); // Get the order ID from the URL parameters
+  const apiUrl = `${import.meta.env.VITE_API_URL}/orders/${id}`; // Fetching specific order details
   const access_token = localStorage.getItem("access_token");
   const [order_customer, setCustomer] = useState("");
   const [order_po, setPo] = useState("");
@@ -35,10 +37,10 @@ const OrderDetails = ({ Id }) => {
     };
 
     try {
-      const apiUrl = `${import.meta.env.VITE_API_URL}/orders`; // <-- orders table or new new orders table??
+      const apiUrl = `${import.meta.env.VITE_API_URL}/orders/${id}`; // <-- orders table or new new orders table??
       const access_token = localStorage.getItem("access_token");
       const response = await fetch(apiUrl, {
-        method: "POST",
+        method: "PUT",
         body: JSON.stringify(body),
         headers: {
           "Content-Type": "application/json",
@@ -55,7 +57,7 @@ const OrderDetails = ({ Id }) => {
 
   useEffect(() => {
     const getData = async () => {
-      const apiUrl = `${import.meta.env.VITE_API_URL}/orders`;
+      const apiUrl = `${import.meta.env.VITE_API_URL}/orders/${id}`; // Fetching specific order details
       const access_token = localStorage.getItem("access_token");
       const data = await fetch(apiUrl).then((response) => response.json());
 
@@ -71,7 +73,7 @@ const OrderDetails = ({ Id }) => {
       setTotal(data.order_total || "");
     };
     getData();
-  }, [setCustomer, setPo, setDate, setCreatedBy, setCreatedAt, setRequestedDate, setStatus, setProduct, setQuantity, setTotal]);
+  }, [id]);
 
 
   return (
@@ -79,7 +81,11 @@ const OrderDetails = ({ Id }) => {
       <label>
         Customer
         <input
-          type="text" value={order_customer} onChange={(e) => setCustomer(e.target.value)} />
+          type="text" 
+          name="order_customer" 
+          value={order_customer} 
+          onChange={(e) => setCustomer(e.target.value)} 
+          />
       </label>
       <label>
         PO

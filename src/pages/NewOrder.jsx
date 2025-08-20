@@ -19,7 +19,8 @@ const NewOrder = () => {
       order_customer,
       order_po,
       order_product,
-      order_product_quantity: Number(order_product_quantity)
+      order_product_quantity: Number(order_product_quantity),
+      order_total
     };
 
     try {

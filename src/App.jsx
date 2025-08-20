@@ -25,7 +25,7 @@ function App() {
       <Routes>
         <Route path='/orders' >
           <Route index element={<Orders />} />
-          <Route path=':orderId' element={<OrderDetails />} />
+          <Route path=':id' element={<OrderDetails />} />
           <Route path='new' element={<NewOrder />} />
         </Route>
         <Route path='/customers' >
