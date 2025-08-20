@@ -119,6 +119,15 @@ const NewOrder = () => {
         />
       </label>
       <label>
+        Status
+        <input
+          type="text"
+          name="order_status"
+          value={order_status}
+          onChange={(e) => setStatus(e.target.value)}
+        />
+      </label>
+      <label>
         Total
         <input
           type="number"
