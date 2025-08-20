@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import {Routes, Route}  from 'react-router'
+import React from 'react'
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react'
+import  ClerkProviderWithRoutes  from './auth/ClerkProviderWithRoutes'
 
 import MainLayout from './layouts/MainLayout'
 
@@ -16,30 +19,37 @@ import NewCustomer from './pages/NewCustomer'
 import CustomerProfile from './pages/CustomerProfile'
 import ProductDetails from './pages/ProductDetails'
 import NewProduct from './pages/NewProduct'
+import { AuthenticationPage } from './pages/AuthenticationPage'
 
 function App() {
   
   return (
     <>
+    <ClerkProviderWithRoutes>
       <Header />
       <Routes>
-        <Route path='/orders' >
-          <Route index element={<Orders />} />
-          <Route path=':id' element={<OrderDetails />} />
-          <Route path='new' element={<NewOrder />} />
-        </Route>
-        <Route path='/customers' >
-          <Route index element={<Customers />} />
-          <Route path=':customerId' element={<CustomerProfile />} />
-          <Route path='new' element={<NewCustomer />} />
-        </Route>
-        <Route path='/inventory' >
-          <Route index element={<Inventory />} />
-          <Route path=':inventoryId' element={<ProductDetails />} />
-          <Route path='new' element={<NewProduct />} />
+        <Route path="/sign-in/*" element={<AuthenticationPage />} />
+        <Route path="/sign-up" element={<AuthenticationPage />} />
+        <Route path='/' element={<MainLayout />}>
+          <Route path='/orders' >
+            <Route index element={<Orders />} />
+            <Route path=':id' element={<OrderDetails />} />
+            <Route path='new' element={<NewOrder />} />
+          </Route>
+          <Route path='/customers' >
+            <Route index element={<Customers />} />
+            <Route path=':customerid' element={<CustomerProfile />} />
+            <Route path='new' element={<NewCustomer />} />
+          </Route>
+          <Route path='/inventory' >
+            <Route index element={<Inventory />} />
+            <Route path=':inventoryid' element={<ProductDetails />} />
+            <Route path='new' element={<NewProduct />} />
+          </Route>
         </Route>
       </Routes>
       <Footer />
+    </ClerkProviderWithRoutes>
     </>
   )
 }
