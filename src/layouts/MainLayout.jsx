@@ -3,24 +3,25 @@ import  Footer  from '../components/Footer';
 import  Header  from '../components/Header';
 import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react';
 import'react';
+import styles from './MainLayout.module.css';
 
 
 const MainLayout = () => {
-        return <div className="app-layout">
-        <header>
-            <div className="header-content">
+        return <div className={styles.appLayout}>
+        <header className={styles.headerContent}>
+            <div>
                 <nav>
                     <SignedIn>
-                        <Link to="/orders">Orders</Link>
+                        {/* <Link to="/orders">Orders</Link>
                         <Link to="/customers">Customers</Link>
-                        <Link to="/inventory">Inventory</Link>
-                        <UserButton/>
+                        <Link to="/inventory">Inventory</Link> */}
+                        Active User<UserButton/>
                     </SignedIn>
                 </nav>
             </div>
         </header>
 
-        <main className="app-main">
+        <main className={styles.appMain}>
             <SignedOut>
                 <Navigate to="/sign-in" replace/>
             </SignedOut>
@@ -31,54 +32,4 @@ const MainLayout = () => {
     </div>
 }
 
-
-
-
-
-
-
-
-// original code below:
-//     return (
-//         <>
-//             <Header />
-//             <main>
-//             <Outlet />
-//             </main>
-//             <Footer />
-//         </>
-//     );
-// };
-
 export default MainLayout;
-
-
-// from app.jsx:
-// function App() {
-  
-//   return (
-//     <>
-//     <ClerkProviderWithRoutes>
-//       <Header />
-//       <Routes>
-//         <Route path='/orders' >
-//           <Route index element={<Orders />} />
-//           <Route path=':id' element={<OrderDetails />} />
-//           <Route path='new' element={<NewOrder />} />
-//         </Route>
-//         <Route path='/customers' >
-//           <Route index element={<Customers />} />
-//           <Route path=':customerid' element={<CustomerProfile />} />
-//           <Route path='new' element={<NewCustomer />} />
-//         </Route>
-//         <Route path='/inventory' >
-//           <Route index element={<Inventory />} />
-//           <Route path=':inventoryid' element={<ProductDetails />} />
-//           <Route path='new' element={<NewProduct />} />
-//         </Route>
-//       </Routes>
-//       <Footer />
-//     </ClerkProviderWithRoutes>
-//     </>
-//   )
-// }

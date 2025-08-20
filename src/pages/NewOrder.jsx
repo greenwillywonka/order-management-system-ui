@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-
+import styles from "./NewOrder.module.css"; // Assuming you have a CSS module for styling
 const NewOrder = () => {
   const [order_customer, setCustomer] = useState(""); // set customer or setOrder_Customer?
   const [order_po, setPo] = useState("");
   const [order_product, setProduct] = useState("");
+  const [order_date, setDate] = useState("");
+  const [order_created_by, setCreatedBy] = useState("");
+  const [order_created_at, setCreatedAt] = useState("");
+  const [requested_date, setRequestedDate] = useState("");
+  const [order_status, setStatus] = useState("");
   const [order_product_quantity, setQuantity] = useState("");
   const [order_total, setTotal] = useState("");
   const navigate = useNavigate();
@@ -18,6 +23,11 @@ const NewOrder = () => {
     const body = {
       order_customer,
       order_po,
+      order_date,
+      order_created_by,
+      order_created_at,
+      requested_date,
+      order_status,
       order_product,
       order_product_quantity: Number(order_product_quantity),
       order_total
@@ -42,6 +52,7 @@ const NewOrder = () => {
   };
 
   return (
+    <div className={styles.formContainer}>
     <form method="POST" onSubmit={handleSubmit}>
       <label>
         Customer
@@ -59,6 +70,33 @@ const NewOrder = () => {
           name="order_po"
           value={order_po}
           onChange={(e) => setPo(e.target.value)}
+        />
+      </label>
+      <label>
+        Date
+        <input
+          type="date"
+          name="order_date"
+          value={order_date}
+          onChange={(e) => setDate(e.target.value)}
+        />
+      </label>
+      <label>
+        Created By
+        <input
+          type="text"
+          name="order_created_by"
+          value={order_created_by}
+          onChange={(e) => setCreatedBy(e.target.value)}
+        />
+      </label>
+      <label>
+        Requested Date
+        <input
+          type="date"
+          name="requested_date"
+          value={requested_date}
+          onChange={(e) => setRequestedDate(e.target.value)}
         />
       </label>
       <label>
@@ -93,6 +131,7 @@ const NewOrder = () => {
         Submit Order
       </button>
     </form>
+    </div>
   );
 };
 

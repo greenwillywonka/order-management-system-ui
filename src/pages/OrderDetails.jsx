@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
+import styles from './OrderDetails.module.css'; // Assuming you have a CSS module for styling
 
 
 const OrderDetails = () => {
@@ -77,6 +78,7 @@ const OrderDetails = () => {
 
 
   return (
+    <div className={styles.formContainer}>
     <form method="POST" onSubmit={handleSubmit}>
       <label>
         Customer
@@ -114,7 +116,7 @@ const OrderDetails = () => {
           onChange={(e) => setCreatedBy(e.target.value)}
         />
       </label>
-      <label>
+      {/* <label>
         Created At
         <input
           type="datetime-local"
@@ -122,7 +124,7 @@ const OrderDetails = () => {
           value={order_created_at}
           onChange={(e) => setCreatedAt(e.target.value)}
         />
-      </label>
+      </label> */}
       <label>
         Requested Date
         <input
@@ -173,6 +175,7 @@ const OrderDetails = () => {
         Update Order
       </button>
     </form>
+    </div>
   )
 }
 export default OrderDetails;

@@ -1,0 +1,34 @@
+.authContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  /* gradient background: color → white → color */
+  background: linear-gradient(
+    to bottom,
+    #4a90e2,   /* top header color */
+    #ffffff 30%, /* white in the middle */
+    #ffffff 70%, 
+    #4a90e2    /* bottom footer color */
+  );
+
+  padding: 2rem;
+}
+
+.authContainer :global(.cl-card) {
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  background: #fff;
+}
+
+.redirectMessage {
+  background: #ffffff;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  text-align: center;
+  font-size: 1.1rem;
+  color: #333;
+}

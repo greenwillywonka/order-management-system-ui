@@ -1,0 +1,113 @@
+/* Container */
+.dashboard {
+  background-color: #111827; /* bg-gray-900 */
+  color: #f9fafb; /* text-gray-50 */
+  min-height: 100vh;
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+/* Header */
+.header {
+    border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700; /* font-bold */
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #9ca3af; /* text-gray-400 */
+    font-size: 2rem; /* text-base */
+  margin-bottom: 1rem;
+}
+
+.newOrderBtn {
+  display: inline-block;
+  background-color: #4f46e5; /* indigo-600 */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.newOrderBtn:hover {
+  background-color: #4338ca; /* indigo-700 */
+}
+
+/* Table */
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1f2937; /* gray-800 */
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #374151; /* gray-700 */
+}
+
+.table th {
+  background-color: #111827; /* gray-900 */
+  font-weight: 600;
+  color: #d1d5db; /* gray-300 */
+}
+
+.table tr:hover {
+  background-color: #2d3748; /* hover:bg-gray-700 */
+}
+
+/* Status badges */
+.status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.pending {
+  background-color: #f59e0b; /* yellow-500 */
+  color: black;
+}
+
+.shipping {
+  background-color: #3b82f6; /* blue-500 */
+  color: white;
+}
+
+.complete {
+  background-color: #10b981; /* green-500 */
+  color: white;
+}
+
+/* Actions */
+.viewLink {
+  color: #60a5fa; /* blue-400 */
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.viewLink:hover {
+  color: #3b82f6; /* blue-500 */
+}
+
+/* Empty message */
+.emptyMsg {
+  text-align: center;
+  padding: 1rem;
+  color: #9ca3af;
+}
