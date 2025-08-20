@@ -21,11 +21,17 @@ import ProductDetails from './pages/ProductDetails'
 import NewProduct from './pages/NewProduct'
 import { AuthenticationPage } from './pages/AuthenticationPage'
 
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+
+if (!PUBLISHABLE_KEY) {
+  throw new Error("Missing Publishable Key");
+}
+
 function App() {
   
   return (
     <>
-    <ClerkProviderWithRoutes>
+    <ClerkProviderWithRoutes publishableKey={PUBLISHABLE_KEY}>
       <Header />
       <Routes>
         <Route path="/sign-in/*" element={<AuthenticationPage />} />

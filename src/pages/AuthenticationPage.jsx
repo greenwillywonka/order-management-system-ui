@@ -2,7 +2,7 @@ import 'react'
 import { SignIn, SignUp, SignedIn, SignedOut } from '@clerk/clerk-react'
 
 export function AuthenticationPage() {
-  return 
+  return (
     <div className="auth-container">
         <SignedOut>
             <SignIn path="/sign-in" routing="path" signUpUrl="/sign-up" />
@@ -14,4 +14,5 @@ export function AuthenticationPage() {
             </div>
         </SignedIn>
     </div>
+  )
     }

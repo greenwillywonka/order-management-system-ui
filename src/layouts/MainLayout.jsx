@@ -1,6 +1,7 @@
 import { Outlet, Link, Navigate } from 'react-router';
 import  Footer  from '../components/Footer';
 import  Header  from '../components/Header';
+import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react';
 import'react';
 
 
