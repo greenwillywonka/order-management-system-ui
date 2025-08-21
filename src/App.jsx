@@ -32,7 +32,6 @@ function App() {
   return (
     <>
     <ClerkProviderWithRoutes publishableKey={PUBLISHABLE_KEY}>
-      <Header />
       <Routes>
         <Route path="/sign-in/*" element={<AuthenticationPage />} />
         <Route path="/sign-up" element={<AuthenticationPage />} />
