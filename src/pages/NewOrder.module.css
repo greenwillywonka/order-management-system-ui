@@ -71,3 +71,19 @@ button:hover {
 button:active {
   transform: scale(0.97);
 }
+
+/* style for all select dropdowns in the form */
+select {
+  margin-top: 0.4rem;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+}

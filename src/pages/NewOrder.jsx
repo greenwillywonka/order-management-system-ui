@@ -12,6 +12,7 @@ const NewOrder = () => {
   const [order_status, setStatus] = useState("");
   const [order_product_quantity, setQuantity] = useState("");
   const [order_total, setTotal] = useState("");
+  const [tracking_number, setTrackingNumber] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -30,7 +31,8 @@ const NewOrder = () => {
       order_status,
       order_product,
       order_product_quantity: Number(order_product_quantity),
-      order_total
+      order_total,
+      tracking_number,
     };
 
     try {
@@ -53,93 +55,107 @@ const NewOrder = () => {
 
   return (
     <div className={styles.formContainer}>
-    <form method="POST" onSubmit={handleSubmit}>
-      <label>
-        Customer
-        <input
-          type="text"
-          name="order_customer"
-          value={order_customer}
-          onChange={(e) => setCustomer(e.target.value)}
-        />
-      </label>
-      <label>
-        PO
-        <input
-          type="text"
-          name="order_po"
-          value={order_po}
-          onChange={(e) => setPo(e.target.value)}
-        />
-      </label>
-      <label>
-        Date
-        <input
-          type="date"
-          name="order_date"
-          value={order_date}
-          onChange={(e) => setDate(e.target.value)}
-        />
-      </label>
-      <label>
-        Created By
-        <input
-          type="text"
-          name="order_created_by"
-          value={order_created_by}
-          onChange={(e) => setCreatedBy(e.target.value)}
-        />
-      </label>
-      <label>
-        Requested Date
-        <input
-          type="date"
-          name="requested_date"
-          value={requested_date}
-          onChange={(e) => setRequestedDate(e.target.value)}
-        />
-      </label>
-      <label>
-        Product
-        <input
-          type="text"
-          name="order_product"
-          value={order_product}
-          onChange={(e) => setProduct(e.target.value)}
-        />
-      </label>
-      <label>
-        Quantity
-        <input
-          type="number"
-          min="1"
-          name="order_product_quantity"
-          value={order_product_quantity}
-          onChange={(e) => setQuantity(e.target.value)}
-        />
-      </label>
-      <label>
-        Status
-        <input
-          type="text"
-          name="order_status"
-          value={order_status}
-          onChange={(e) => setStatus(e.target.value)}
-        />
-      </label>
-      <label>
-        Total
-        <input
-          type="number"
-          name="order_total"
-          value={order_total}
-          onChange={(e) => setTotal(e.target.value)}
-        />
-      </label>
-      <button type="submit" >
-        Submit Order
-      </button>
-    </form>
+      <form method="POST" onSubmit={handleSubmit}>
+        <label>
+          Customer
+          <input
+            type="text"
+            name="order_customer"
+            value={order_customer}
+            onChange={(e) => setCustomer(e.target.value)}
+          />
+        </label>
+        <label>
+          PO
+          <input
+            type="text"
+            name="order_po"
+            value={order_po}
+            onChange={(e) => setPo(e.target.value)}
+          />
+        </label>
+        <label>
+          Date
+          <input
+            type="date"
+            name="order_date"
+            value={order_date}
+            onChange={(e) => setDate(e.target.value)}
+          />
+        </label>
+        <label>
+          Created By
+          <input
+            type="text"
+            name="order_created_by"
+            value={order_created_by}
+            onChange={(e) => setCreatedBy(e.target.value)}
+          />
+        </label>
+        <label>
+          Requested Date
+          <input
+            type="date"
+            name="requested_date"
+            value={requested_date}
+            onChange={(e) => setRequestedDate(e.target.value)}
+          />
+        </label>
+        <label>
+          Product
+          <input
+            type="text"
+            name="order_product"
+            value={order_product}
+            onChange={(e) => setProduct(e.target.value)}
+          />
+        </label>
+        <label>
+          Quantity
+          <input
+            type="number"
+            min="1"
+            name="order_product_quantity"
+            value={order_product_quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+          />
+        </label>
+        <label>
+          Status
+          <select
+            name="order_status"
+            value={order_status}
+            onChange={(e) => setStatus(e.target.value)}
+          >
+            <option value="">-- Select Status --</option>
+            <option value="pending">Pending</option>
+            <option value="shipping">Shipping</option>
+            <option value="complete">Complete</option>
+          </select>
+        </label>
+        <label>
+          Total
+          <input
+            type="number"
+            name="order_total"
+            value={order_total}
+            onChange={(e) => setTotal(e.target.value)}
+          />
+        </label>
+        <label>
+          Tracking Number
+          <input
+            type="text"
+            name="tracking_number"
+            placeholder="UPS, FedEx, USPS, PRO, etc."
+            value={tracking_number}
+            onChange={(e) => setTrackingNumber(e.target.value)}
+          />
+        </label>
+        <button type="submit" >
+          Submit Order
+        </button>
+      </form>
     </div>
   );
 };

@@ -17,6 +17,7 @@ const OrderDetails = () => {
   const [order_product, setProduct] = useState("");
   const [order_product_quantity, setQuantity] = useState("");
   const [order_total, setTotal] = useState("");
+  const [tracking_number, setTrackingNumber] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -34,7 +35,8 @@ const OrderDetails = () => {
       order_status,
       order_product,
       order_product_quantity: Number(order_product_quantity),
-      order_total
+      order_total,
+      tracking_number,
     };
 
     try {
@@ -72,6 +74,7 @@ const OrderDetails = () => {
       setProduct(data.order_product || "");
       setQuantity(data.order_product_quantity || "");
       setTotal(data.order_total || "");
+      setTrackingNumber(data.tracking_number || "");
     };
     getData();
   }, [id]);
@@ -135,14 +138,18 @@ const OrderDetails = () => {
         />
       </label>
       <label>
-        Status
-        <input
-          type="text"
-          name="order_status"
-          value={order_status}
-          onChange={(e) => setStatus(e.target.value)}
-        />
-      </label>
+          Status
+          <select
+            name="order_status"
+            value={order_status}
+            onChange={(e) => setStatus(e.target.value)}
+          >
+            <option value="">-- Select Status --</option>
+            <option value="pending">Pending</option>
+            <option value="shipping">Shipping</option>
+            <option value="complete">Complete</option>
+          </select>
+        </label>
       <label>
         Product
         <input
@@ -171,6 +178,16 @@ const OrderDetails = () => {
           onChange={(e) => setTotal(e.target.value)}
         />
       </label>
+      <label>
+          Tracking Number
+          <input
+            type="text"
+            name="tracking_number"
+            placeholder="UPS, FedEx, USPS, PRO, etc."
+            value={tracking_number}
+            onChange={(e) => setTrackingNumber(e.target.value)}
+          />
+        </label>
       <button type="submit">
         Update Order
       </button>
