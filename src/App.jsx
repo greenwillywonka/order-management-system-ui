@@ -44,12 +44,12 @@ function App() {
           </Route>
           <Route path='/customers' >
             <Route index element={<Customers />} />
-            <Route path=':customerid' element={<CustomerProfile />} />
+            <Route path=':id' element={<CustomerProfile />} />
             <Route path='new' element={<NewCustomer />} />
           </Route>
           <Route path='/inventory' >
             <Route index element={<Inventory />} />
-            <Route path=':inventoryid' element={<ProductDetails />} />
+            <Route path=':id' element={<ProductDetails />} />
             <Route path='new' element={<NewProduct />} />
           </Route>
         </Route>

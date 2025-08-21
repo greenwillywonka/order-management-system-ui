@@ -10,6 +10,7 @@ const OrderDashboard = () => {
             try {
                 const url = `${import.meta.env.VITE_API_URL}/orders`; // This should be your FastAPI endpoint
                 const data = await fetch(url).then((res) => res.json());
+                const sortedOrders = data.sort((a, b) => b.id - a.id);
                 console.log("Orders data:", data);
                 setOrders(data);
             } catch (err) {
