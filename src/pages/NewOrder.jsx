@@ -15,6 +15,27 @@ const NewOrder = () => {
   const [tracking_number, setTrackingNumber] = useState("");
   const navigate = useNavigate();
 
+  const [customers, setCustomers] = useState([]);
+
+useEffect(() => {
+  const fetchCustomers = async () => {
+    try {
+      const apiUrl = `${import.meta.env.VITE_API_URL}/customers`; 
+      const access_token = localStorage.getItem("access_token");
+
+      const response = await fetch(apiUrl, {
+        headers: { Authorization: `Bearer ${access_token}` },
+      });
+      const data = await response.json();
+      setCustomers(data); // make sure API returns an array of customers
+    } catch (error) {
+      console.error("Failed to fetch customers", error);
+    }
+  };
+
+  fetchCustomers();
+}, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -60,10 +81,16 @@ const NewOrder = () => {
           Customer
           <input
             type="text"
+            list="customer-options"
             name="order_customer"
             value={order_customer}
             onChange={(e) => setCustomer(e.target.value)}
           />
+          <datalist id="customer-options">
+            {customers.map((customer,idx) => (
+              <option key={idx} value={customer.customer_name} />
+            ))}
+          </datalist>  
         </label>
         <label>
           PO

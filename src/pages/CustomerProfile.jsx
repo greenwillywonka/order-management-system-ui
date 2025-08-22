@@ -122,6 +122,15 @@ const CustomerProfile = () => {
         />
       </label>
       <label>
+        Order Quantity
+        <input
+          type="text"
+          name="order_quantity"
+          value={order_quantity}
+          onChange={(e) => setOrderQuantity(e.target.value)}
+        />
+      </label>
+      <label>
         Last Order Date
         <input
           type="date"
