@@ -27,7 +27,7 @@ const MainLayout = () => {
       <main className={styles.appMain}>
         {isHome && (
           <div className={styles.frontPageContainer}>
-            <h1 className={styles.mainTitle}>🚀 Welcome to Your Dashboard!</h1>
+            <h1 className={styles.mainTitle}>🚀 Welcome to Your Basic Order Management System!</h1>
             <h2 className={styles.mainSubtitle}>
               Manage all your orders and customer profiles in one easy-to-use app.
             </h2>
@@ -35,8 +35,8 @@ const MainLayout = () => {
             <div className={styles.featureGrid}>
               <div className={styles.featureCard}>
                 <span className={styles.featureIcon}>📝</span>
-                <h3>Create Orders</h3>
-                <p>Quickly add new orders with all the details you need.</p>
+                <h3>Orders Dashboard</h3>
+                <p>Quickly track and create new orders with all the details you need.</p>
               </div>
               <div className={styles.featureCard}>
                 <span className={styles.featureIcon}>👥</span>
@@ -51,7 +51,7 @@ const MainLayout = () => {
             </div>
 
             <h3 className={styles.mainSubtitle}>
-              Get started by clicking <strong>Orders</strong> or <strong>Customers</strong> above, or create something new with the <strong>+ New Order</strong> or <strong>+ New Customer</strong> buttons!
+              Get started by clicking <strong>Orders</strong> or <strong>Customers</strong> above. Take a look around or create something new with the <strong>+ New Order</strong> or <strong>+ New Customer</strong> buttons inside!
             </h3>
           </div>
         )}
