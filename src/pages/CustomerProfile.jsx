@@ -140,6 +140,15 @@ const CustomerProfile = () => {
         />
       </label>
       <label>
+        Average Order Total
+        <input
+          type="text"
+          name="average_order_total"
+          value={average_order_total}
+          onChange={(e) => setAverageOrderTotal(e.target.value)}
+        />
+      </label>
+      <label>
         Email
         <input
           type="text"
