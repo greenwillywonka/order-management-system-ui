@@ -91,55 +91,55 @@ const CustomerProfile = () => {
 
   return (
     <>
-    <h1 className={styles.title}>Customer Profile - {customer_name}</h1>
-    <div className={styles.formContainer}>
-    <form method="POST" onSubmit={handleSubmit}>
-      <label>
-        Customer
-        <input
-          type="text" 
-          name="customer_name" 
-          value={customer_name} 
-          onChange={(e) => setCustomerName(e.target.value)} 
-          />
-      </label>
-      <label>
-        Assigned Representative
-        <input
-          type="text"
-          name="assigned_representative"
-          value={assigned_representative}
-          onChange={(e) => setAssignedRepresentative(e.target.value)}
-        />
-      </label>
-      <label>
-        Purchaser
-        <input
-          type="text"
-          name="purchaser"
-          value={purchaser}
-          onChange={(e) => setPurchaser(e.target.value)}
-        />
-      </label>
-      <label>
-        Order Quantity
-        <input
-          type="text"
-          name="order_quantity"
-          value={order_quantity}
-          onChange={(e) => setOrderQuantity(e.target.value)}
-        />
-      </label>
-      <label>
-        Last Order Date
-        <input
-          type="date"
-          name="last_order_date"
-          value={last_order_date}
-          onChange={(e) => setLastOrderDate(e.target.value)}
-        />
-      </label>
-      <label>
+      <h1 className={styles.title}>Customer Profile - {customer_name}</h1>
+      <div className={styles.formContainer}>
+        <form method="POST" onSubmit={handleSubmit}>
+          <label>
+            Customer
+            <input
+              type="text"
+              name="customer_name"
+              value={customer_name}
+              onChange={(e) => setCustomerName(e.target.value)}
+            />
+          </label>
+          <label>
+            Assigned Representative
+            <input
+              type="text"
+              name="assigned_representative"
+              value={assigned_representative}
+              onChange={(e) => setAssignedRepresentative(e.target.value)}
+            />
+          </label>
+          <label>
+            Purchaser
+            <input
+              type="text"
+              name="purchaser"
+              value={purchaser}
+              onChange={(e) => setPurchaser(e.target.value)}
+            />
+          </label>
+          <label>
+            Order Quantity
+            <input
+              type="text"
+              name="order_quantity"
+              value={order_quantity}
+              onChange={(e) => setOrderQuantity(e.target.value)}
+            />
+          </label>
+          <label>
+            Last Order Date
+            <input
+              type="date"
+              name="last_order_date"
+              value={last_order_date}
+              onChange={(e) => setLastOrderDate(e.target.value)}
+            />
+          </label>
+          {/* <label>
         Average Order Total
         <input
           type="text"
@@ -147,76 +147,90 @@ const CustomerProfile = () => {
           value={average_order_total}
           onChange={(e) => setAverageOrderTotal(e.target.value)}
         />
-      </label>
-      <label>
-        Email
-        <input
-          type="text"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </label>
-      <label>
-        Phone Number
-        <input
-          type="text"
-          name="phonenumber"
-          value={phonenumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
-        />
-      </label>
-      <label>
-        Address
-        <input
-          type="text"
-          name="address"
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-        />
-      </label>
-      <label>
-        City
-        <input
-          type="text"
-          name="city"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-        />
-      </label>
-      <label>
-        State
-        <input
-          type="text"
-          name="state"
-          value={state}
-          onChange={(e) => setState(e.target.value)}
-        />
-      </label>
-      <label>
-        Zip Code
-        <input
-          type="text"
-          name="zipcode"
-          value={zipcode}
-          onChange={(e) => setZipCode(e.target.value)}
-        />
-      </label>
-      <label className={styles.notesLabel}>
-        Notes
-        <textarea
-          type="text"
-          name="customer_notes"
-          rows={5}
-          value={customer_notes}
-          onChange={(e) => setCustomerNotes(e.target.value)}
-        />
-      </label>
-      <button type="submit">
-        Update Customer Profile
-      </button>
-    </form>
-    </div>
+      </label> */}
+          <label>
+            Average Order Total
+            <input
+              type="text"
+              name="average_order_total"
+              value={`$${average_order_total}`}
+              onChange={(e) => {
+                // remove "$" before saving to state
+                const val = e.target.value.replace(/[^0-9.]/g, "");
+                setTotal(val);
+              }}
+            />
+          </label>
+
+          <label>
+            Email
+            <input
+              type="text"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </label>
+          <label>
+            Phone Number
+            <input
+              type="text"
+              name="phonenumber"
+              value={phonenumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+            />
+          </label>
+          <label>
+            Address
+            <input
+              type="text"
+              name="address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            />
+          </label>
+          <label>
+            City
+            <input
+              type="text"
+              name="city"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
+          </label>
+          <label>
+            State
+            <input
+              type="text"
+              name="state"
+              value={state}
+              onChange={(e) => setState(e.target.value)}
+            />
+          </label>
+          <label>
+            Zip Code
+            <input
+              type="text"
+              name="zipcode"
+              value={zipcode}
+              onChange={(e) => setZipCode(e.target.value)}
+            />
+          </label>
+          <label className={styles.notesLabel}>
+            Notes
+            <textarea
+              type="text"
+              name="customer_notes"
+              rows={5}
+              value={customer_notes}
+              onChange={(e) => setCustomerNotes(e.target.value)}
+            />
+          </label>
+          <button type="submit">
+            Update Customer Profile
+          </button>
+        </form>
+      </div>
     </>
   )
 }

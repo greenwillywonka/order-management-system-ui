@@ -82,44 +82,44 @@ const OrderDetails = () => {
 
   return (
     <div className={styles.formContainer}>
-    <form method="POST" onSubmit={handleSubmit}>
-      <label>
-        Customer
-        <input
-          type="text" 
-          name="order_customer" 
-          value={order_customer} 
-          onChange={(e) => setCustomer(e.target.value)} 
+      <form method="POST" onSubmit={handleSubmit}>
+        <label>
+          Customer
+          <input
+            type="text"
+            name="order_customer"
+            value={order_customer}
+            onChange={(e) => setCustomer(e.target.value)}
           />
-      </label>
-      <label>
-        PO
-        <input
-          type="text"
-          name="order_po"
-          value={order_po}
-          onChange={(e) => setPo(e.target.value)}
-        />
-      </label>
-      <label>
-        Order Date
-        <input
-          type="date"
-          name="order_date"
-          value={order_date}
-          onChange={(e) => setDate(e.target.value)}
-        />
-      </label>
-      <label>
-        Created By
-        <input
-          type="text"
-          name="order_created_by"
-          value={order_created_by}
-          onChange={(e) => setCreatedBy(e.target.value)}
-        />
-      </label>
-      {/* <label>
+        </label>
+        <label>
+          PO
+          <input
+            type="text"
+            name="order_po"
+            value={order_po}
+            onChange={(e) => setPo(e.target.value)}
+          />
+        </label>
+        <label>
+          Order Date
+          <input
+            type="date"
+            name="order_date"
+            value={order_date}
+            onChange={(e) => setDate(e.target.value)}
+          />
+        </label>
+        <label>
+          Created By
+          <input
+            type="text"
+            name="order_created_by"
+            value={order_created_by}
+            onChange={(e) => setCreatedBy(e.target.value)}
+          />
+        </label>
+        {/* <label>
         Created At
         <input
           type="datetime-local"
@@ -128,16 +128,16 @@ const OrderDetails = () => {
           onChange={(e) => setCreatedAt(e.target.value)}
         />
       </label> */}
-      <label>
-        Requested Date
-        <input
-          type="date"
-          name="requested_date"
-          value={requested_date}
-          onChange={(e) => setRequestedDate(e.target.value)}
-        />
-      </label>
-      <label>
+        <label>
+          Requested Date
+          <input
+            type="date"
+            name="requested_date"
+            value={requested_date}
+            onChange={(e) => setRequestedDate(e.target.value)}
+          />
+        </label>
+        <label>
           Status
           <select
             name="order_status"
@@ -150,35 +150,40 @@ const OrderDetails = () => {
             <option value="complete">Complete</option>
           </select>
         </label>
-      <label>
-        Product
-        <input
-          type="text"
-          name="order_product"
-          value={order_product}
-          onChange={(e) => setProduct(e.target.value)}
-        />
-      </label>
-      <label>
-        Quantity
-        <input
-          type="number"
-          min="1"
-          name="order_product_quantity"
-          value={order_product_quantity}
-          onChange={(e) => setQuantity(e.target.value)}
-        />
-      </label>
-      <label>
-        Total
-        <input
-          type="number"
-          name="order_total"
-          value={order_total}
-          onChange={(e) => setTotal(e.target.value)}
-        />
-      </label>
-      <label>
+        <label>
+          Product
+          <input
+            type="text"
+            name="order_product"
+            value={order_product}
+            onChange={(e) => setProduct(e.target.value)}
+          />
+        </label>
+        <label>
+          Quantity
+          <input
+            type="number"
+            min="1"
+            name="order_product_quantity"
+            value={order_product_quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+          />
+        </label>
+        <label>
+          Total
+          <input
+            type="text"
+            name="order_total"
+            value={`$${order_total}`}
+            onChange={(e) => {
+              // remove "$" before saving to state
+              const val = e.target.value.replace(/[^0-9.]/g, "");
+              setTotal(val);
+            }}
+          />
+        </label>
+
+        <label>
           Tracking Number
           <input
             type="text"
@@ -188,10 +193,10 @@ const OrderDetails = () => {
             onChange={(e) => setTrackingNumber(e.target.value)}
           />
         </label>
-      <button type="submit">
-        Update Order
-      </button>
-    </form>
+        <button type="submit">
+          Update Order
+        </button>
+      </form>
     </div>
   )
 }
