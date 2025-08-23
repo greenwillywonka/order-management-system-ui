@@ -109,7 +109,7 @@ nav a:hover {
 }
 
 .featureCard {
-  background-color: #1f2937; /* gray-800 */
+  background-color:rgba(79, 70, 229, 0.15); /* semi-transparent indigo */
   padding: 1.5rem;
   border-radius: 1rem;
   width: 220px;
@@ -125,4 +125,10 @@ nav a:hover {
   font-size: 2rem;
   margin-bottom: 0.5rem;
   display: block;
+}
+
+.navLinks {
+   display: flex;
+  align-items: stretch;   /* makes all children same height */
+  gap: 0.5rem; 
 }

@@ -14,7 +14,7 @@ const MainLayout = () => {
       <header className={styles.headerContent}>
         <div className={styles.title}>Basic Order Management System</div> 
         <div>
-          <nav>
+          <nav className={styles.navLinks}>
             <SignedIn>
               <NavLink to="/orders" className={({ isActive }) => (isActive ? styles.active : undefined)}>Orders</NavLink>
               <NavLink to="/customers" className={({ isActive }) => (isActive ? styles.active : undefined)}>Customers</NavLink>
