@@ -9,7 +9,7 @@
 
 /* Header */
 .header {
-    border-radius: 10px;
+  border-radius: 10px;
   margin-bottom: 2rem;
 }
 
@@ -21,37 +21,71 @@
 
 .subtitle {
   color: #9ca3af; /* text-gray-400 */
-    font-size: 2rem; /* text-base */
-  margin-bottom: 1rem;
+  font-size: 2rem; /* text-base */
+ 
 }
 
+/* Actions container */
+.actions {
+  display: flex;
+  align-items: baseline;  
+  gap: 0.5rem; /* space between search, dropdown, button */
+}
+
+/* Uniform header controls (search, dropdown, button) */
+.searchBar,
+.filterDropdown,
 .newOrderBtn {
-  display: inline-block;
-  background-color: #4f46e5; /* indigo-600 */
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
-  border-color: #4f46e5;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background 0.2s ease;
-}
-.filterDropdown {
-  display: inline-block;
-  background-color: #4f46e5; /* indigo-600 */
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
-  border-color: #4f46e5;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background 0.2s ease;
-}
-.newOrderBtn:hover {
-  background-color: #4338ca; /* indigo-700 */
+  height: 2.5rem;                 
+  font-size: 1rem;                
+  padding: 0 1rem;                
+  display: inline-flex;           
+  align-items: center;            
+  justify-content: center;        
+  box-sizing: border-box;         
+  background-color: rgba(79, 70, 229, 0.15); /* semi-transparent indigo */
+  color: #f9fafb;
+  border: 1px solid rgba(79, 70, 229, 0.3);
+  transition: all 0.2s ease;
+  border-radius: 0.375rem; /* small rounded corners, not pills */
 }
 
-/* Table */
+/* Search bar specific tweaks */
+.searchBar {
+  flex: 1; /* expands to fill remaining space */
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #f9fafb;
+}
+
+/* Hover effect for all header controls */
+.searchBar:hover,
+.filterDropdown:hover,
+.newOrderBtn:hover {
+  background-color: rgba(79, 70, 229, 0.3);
+  border-color: rgba(79, 70, 229, 0.5);
+}
+
+/* Focus / active effect for all header controls */
+.searchBar:focus,
+.filterDropdown:focus,
+.newOrderBtn:active {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.5);
+}
+
+/* Dropdown specific tweaks */
+.filterDropdown {
+  cursor: pointer;
+}
+
+/* Button specific tweaks */
+.newOrderBtn {
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Table wrapper */
 .tableWrapper {
   overflow-x: auto;
 }
@@ -77,6 +111,29 @@
   color: #d1d5db; /* gray-300 */
 }
 
+/* Sortable headers */
+.sortableHeader {
+  color: var(--primary); 
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem; /* small rounded corners */
+}
+
+.sortableHeader:hover {
+  color: var(--accent);
+  background-color: rgba(79, 70, 229, 0.2);
+}
+
+.sortableHeaderActive {
+  color: var(--accent);
+  font-weight: 700;
+  background-color: rgba(79, 70, 229, 0.3);
+}
+
+/* Row hover */
 .table tr:hover {
   background-color: #2d3748; /* hover:bg-gray-700 */
 }
@@ -106,11 +163,6 @@
 }
 
 /* Actions */
-
-.actions {
-  display: flex;
-  gap: 0.5rem;
-}
 .viewLink {
   color: #60a5fa; /* blue-400 */
   text-decoration: underline;
@@ -127,24 +179,3 @@
   padding: 1rem;
   color: #9ca3af;
 }
-
-.sortableHeader {
-  color: var(--primary); /* same as your nav link color */
-  font-weight: 500;
-  cursor: pointer;
-  user-select: none;
-  transition: color 0.2s ease;
-}
-
-.sortableHeader:hover {
-  text-decoration: underline,;
-  color: var(--accent); /* same as hover nav link */
-}
-
-.sortableHeader:Active {
-  color: var(--accent); /* same as active nav link */
-  text-decoration: underline;
-  font-weight: 800;
-  
-}
-
